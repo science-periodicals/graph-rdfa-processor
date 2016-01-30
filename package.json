@@ -1,0 +1,31 @@
+{
+  "name": "graph-rdfa-processor",
+  "version": "1.0.0",
+  "description": "Green turtle GraphRdfaProcessor extracted and available as a commonJS module",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --compilers js:babel-register",
+    "prepublish": "rm -rf dist && ./node_modules/.bin/babel src --out-dir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scienceai/graph-rdfa-processor.git"
+  },
+  "keywords": [
+    "RDFa"
+  ],
+  "author": "Sebastien Ballesteros",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/scienceai/graph-rdfa-processor/issues"
+  },
+  "homepage": "https://github.com/scienceai/graph-rdfa-processor#readme",
+  "devDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-plugin-add-module-exports": "^0.1.2",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-register": "^6.4.3",
+    "jsdom": "^8.0.1",
+    "mocha": "^2.3.4"
+  }
+}

@@ -15,7 +15,8 @@ For convenience, a high level API has been added:
 ```
 import getRdfaGraph from graph-rdfa-processor;
 
-let graph = getRdfaGraph(document, opts);
+let opts = {baseURI: 'http://example.com'};
+let graph = getRdfaGraph(documentOrNode, opts);
 console.log(graph.toString());
 ```
 

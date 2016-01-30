@@ -278,7 +278,6 @@ export default class RDFaProcessor extends URIResolver {
 
 
   process(node, options) {
-
     if (node.nodeType==Node.DOCUMENT_NODE) {
       node = node.documentElement;
       this.setContext(node);

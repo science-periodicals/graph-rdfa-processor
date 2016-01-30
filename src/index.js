@@ -3,7 +3,8 @@ import GraphRDFaProcessor from './graph-rdfa-processor';
 import { RDFaGraph } from './rdfa-graph';
 
 export default function(document, options = {}) {
-  let baseURI = options.baseURI ? options.baseURI : document.documentElement.baseURI;
+  let node = document.documentElement || document;
+  let baseURI = options.baseURI ? options.baseURI : node.baseURI;
 
   let graph = new RDFaGraph();
 
@@ -13,6 +14,6 @@ export default function(document, options = {}) {
   };
 
   var processor = new GraphRDFaProcessor(target);
-  processor.process(document.documentElement, options);
+  processor.process(node, options);
   return target.graph;
 };

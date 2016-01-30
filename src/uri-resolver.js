@@ -3,7 +3,7 @@ export default class URIResolver {
   parseURI(uri) {
     var match = URIResolver.SCHEME.exec(uri);
     if (!match) {
-      throw new Error("Bad URI value, no scheme: "+uri);
+      throw new Error("Bad URI value, no scheme: " + uri);
     }
     var parsed = { spec: uri };
     parsed.scheme = match[0].substring(0,match[0].length-1);
@@ -48,8 +48,8 @@ export default class URIResolver {
           i--;
         }
       }
-      this.path = this.segments.length==0 ? "/" : "/"+this.segments.join("/")+end;
-      this.schemeSpecificPart = "//"+this.authority+this.path;
+      this.path = this.segments.length==0 ? "/" : "/" + this.segments.join("/") + end;
+      this.schemeSpecificPart = "//" + this.authority + this.path;
       if (typeof this.query != "undefined") {
         this.schemeSpecificPart += "?" + this.query;
       }
@@ -68,7 +68,7 @@ export default class URIResolver {
         return lastHash<0 ? this.spec+href : this.spec.substring(0,lastHash)+href;
       }
       if (!this.isGeneric) {
-        throw "Cannot resolve uri against non-generic URI: "+this.spec;
+        throw new Error("Cannot resolve uri against non-generic URI: " + this.spec);
       }
       var colon = href.indexOf(':');
       if (href.charAt(0)=='/') {
@@ -99,10 +99,10 @@ export default class URIResolver {
         return this.spec;
       }
       if (!this.isGeneric) {
-        throw "A non generic URI cannot be made relative: "+this.spec;
+        throw new Error("A non generic URI cannot be made relative: " + this.spec);
       }
       if (!otherURI.isGeneric) {
-        throw "Cannot make a relative URI against a non-generic URI: "+otherURI.spec;
+        throw new Error("Cannot make a relative URI against a non-generic URI: " + otherURI.spec);
       }
       if (otherURI.authority!=this.authority) {
         return this.spec;
@@ -143,7 +143,7 @@ export default class URIResolver {
         }
         return relative;
       } else {
-        throw "Cannot calculate a relative URI for "+this.spec+" against "+otherURI.spec;
+        throw new Error("Cannot calculate a relative URI for "+this.spec+" against " + otherURI.spec);
       }
     };
     return parsed;
@@ -151,7 +151,7 @@ export default class URIResolver {
 
   parseGeneric(parsed) {
     if (parsed.schemeSpecificPart.charAt(0)!='/' || parsed.schemeSpecificPart.charAt(1)!='/') {
-      throw "Generic URI values should start with '//':"+parsed.spec;
+      throw new Error("Generic URI values should start with '//':" + parsed.spec);
     }
 
     var work = parsed.schemeSpecificPart.substring(2);
@@ -189,7 +189,7 @@ export default class URIResolver {
 
         for (var j=0; j < check.length; j++) {
           if (check[j].length>0) {
-            throw "Unecaped character "+check[j].charAt(0)+" ("+check[j].charCodeAt(0)+") in URI "+parsed.spec;
+            throw new Error("Unecaped character "+check[j].charAt(0)+" ("+check[j].charCodeAt(0)+") in URI " + parsed.spec);
           }
         }
       }

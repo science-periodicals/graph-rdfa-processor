@@ -279,10 +279,6 @@ export default class RDFaProcessor extends URIResolver {
 
   process(node, options) {
 
-    /*
-       if (!window.console) {
-       window.console = { log: function() {} };
-       }*/
     if (node.nodeType==Node.DOCUMENT_NODE) {
       node = node.documentElement;
       this.setContext(node);
@@ -349,7 +345,23 @@ export default class RDFaProcessor extends URIResolver {
       var vocabulary = context.vocabulary;
 
       // TODO: the "base" element may be used for HTML+RDFa 1.1
-      var base = this.parseURI(removeHash(current.baseURI));
+      var base;
+      if (!current.baseURI) {
+        if (this.target.baseURI) {
+          base = this.target.baseURI;
+        } else {
+          throw new Error('node.baseURI was null as baseURI must be specified as an option');
+        }
+      } else if (current.baseURI === 'about:blank') {
+        if (this.target.baseURI) {
+          base = this.target.baseURI;
+        } else {
+          throw new Error('node.baseURI is about:blank a valid URL must be provided with the baseURI option. If you use JSDOM call it with an `url` parameter or, set the baseURI option of this library');
+        }
+      } else {
+        base = this.parseURI(removeHash(current.baseURI));
+      }
+
       current.item = null;
 
       // Sequence Step 2: set the default vocabulary

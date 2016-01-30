@@ -12,9 +12,9 @@ describe('getRDFaGraph', function() {
         <span>Source:  <a property="dc:source" href="http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews">rNews</a></span>
      </div>`;
 
-    let { document } = jsdom(html, {url: 'file:///'}).defaultView.window;
+    let { document } = jsdom(html).defaultView.window;
 
-    let graph = getRDFaGraph(document);
+    let graph = getRDFaGraph(document, {baseURI: 'http://localhost'});
 
     let expected = `<http://schema.org/CreativeWork> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class>;
  <http://www.w3.org/2000/01/rdf-schema#label> "CreativeWork";

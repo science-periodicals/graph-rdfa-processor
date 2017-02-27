@@ -5,8 +5,16 @@
   "main": "dist/index.js",
   "module": "src/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --compilers js:babel-register",
-    "prepublish": "rm -rf dist && ./node_modules/.bin/babel src --out-dir dist"
+    "test": "mocha --compilers js:babel-register",
+    "prepublish": "rm -rf dist && babel src --out-dir dist"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "add-module-exports"
+    ]
   },
   "repository": {
     "type": "git",

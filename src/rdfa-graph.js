@@ -378,7 +378,7 @@ export class RDFaPredicate {
                    this.objects[i].type=="http://www.w3.org/2001/XMLSchema#decimal" ||
                    this.objects[i].type=="http://www.w3.org/2001/XMLSchema#double" ||
                    this.objects[i].type=="http://www.w3.org/2001/XMLSchema#boolean") {
-           s += this.objects[i].value;
+          s +=  '"' + this.objects[i].value + '"' + "^^<" + this.objects[i].type + ">";
         } else if (this.objects[i].type=="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral") {
            var serializer = new XMLSerializer();
            var value = "";

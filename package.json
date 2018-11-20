@@ -6,7 +6,7 @@
   "module": "src/index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-register",
-    "prepublish": "rm -rf dist && babel src --out-dir dist"
+    "prepare": "rm -rf dist && babel src --out-dir dist"
   },
   "babel": {
     "presets": [

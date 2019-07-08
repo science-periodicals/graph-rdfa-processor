@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/scienceai/graph-rdfa-processor.git"
+    "url": "git+https://github.com/science-periodicals/graph-rdfa-processor.git"
   },
   "keywords": [
     "RDFa"
@@ -26,9 +26,9 @@
   "author": "Sebastien Ballesteros",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/scienceai/graph-rdfa-processor/issues"
+    "url": "https://github.com/science-periodicals/graph-rdfa-processor/issues"
   },
-  "homepage": "https://github.com/scienceai/graph-rdfa-processor#readme",
+  "homepage": "https://github.com/science-periodicals/graph-rdfa-processor#readme",
   "devDependencies": {
     "babel-cli": "^6.23.0",
     "babel-plugin-add-module-exports": "^0.2.1",

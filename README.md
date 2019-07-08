@@ -25,5 +25,5 @@ See the tests for a full example.
 ## RDFa to JSON-LD
 
 see
-[jsonld-rdfa-parser](https://github.com/scienceai/jsonld-rdfa-parser)
+[jsonld-rdfa-parser](https://github.com/science-periodicals/jsonld-rdfa-parser)
 (using this module to extract the RDFa graph.

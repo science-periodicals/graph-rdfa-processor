@@ -1,5 +1,7 @@
 # graph-rdfa-processor
 
+[![CircleCI](https://circleci.com/gh/science-periodicals/graph-rdfa-processor.svg?style=svg)](https://circleci.com/gh/science-periodicals/graph-rdfa-processor)
+
 Note: this module is auto published to npm on CircleCI. Only run `npm version
 patch|minor|major` and let CI do the rest.
 

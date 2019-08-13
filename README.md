@@ -1,5 +1,8 @@
 # graph-rdfa-processor
 
+Note: this module is auto published to npm on CircleCI. Only run `npm version
+patch|minor|major` and let CI do the rest.
+
 Green turtle GraphRdfaProcessor extracted and available as a
 standalone commonJS / ES2015 module.
 
@@ -12,7 +15,7 @@ proper Errors are now thrown instead of plain strings.
 
 For convenience, a high level API has been added:
 
-```
+```js
 import getRdfaGraph from graph-rdfa-processor;
 
 let opts = {baseURI: 'http://example.com'};
